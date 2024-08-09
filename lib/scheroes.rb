@@ -2,3 +2,4 @@
 
 require 'scheroes/chat'
 require 'scheroes/titles'
+require 'scheroes/game'

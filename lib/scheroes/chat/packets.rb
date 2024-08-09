@@ -290,6 +290,8 @@ module SCHeroes
       attr_reader :id
 
       def initialize(id)
+        super
+
         @id = id
       end
 

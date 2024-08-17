@@ -10,18 +10,9 @@ module SCHeroes
     ##
     # Data packet
     class DataPacket
-      def self.successors
-        @successors
-      end
-
-      def self.inherited(successor)
-        @successors ||= []
-        @successors << successor
-      end
-
       def self.packet_id(socket)
         id = socket.read(1).unpack1('C')
-        packet = @successors.detect { |s| s::ID == id }
+        packet = subclasses.detect { |s| s::ID == id }
         raise UnknownPacketError.new(id) unless packet
 
         packet
